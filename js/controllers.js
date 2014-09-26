@@ -1,48 +1,115 @@
-angular.module('starter.controllers', [])
+angular.module('app')
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-  // Form data for the login modal
-  $scope.loginData = {};
+.controller('AppCtrl', function ($scope, $state, OpenFB) {
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
+  $scope.logout = function () {
+    OpenFB.logout();
+    $state.go('app.login');
+  };
+
+  $scope.revokePermissions = function () {
+    OpenFB.revokePermissions().then(
+      function () {
+        $state.go('app.login');
+      },
+      function () {
+        alert('Revoke permissions failed');
+      });
+  };
+
+})
+
+.controller('LoginCtrl', function ($scope, $location, OpenFB) {
+
+  $scope.facebookLogin = function () {
+
+    OpenFB.login('email,read_stream,publish_stream').then(
+      function () {
+        $location.path('/app/person/me/feed');
+      },
+      function () {
+        alert('OpenFB login failed');
+      });
+  };
+
+})
+
+.controller('ShareCtrl', function ($scope, OpenFB) {
+
+  $scope.item = {};
+
+  $scope.share = function () {
+    OpenFB.post('/me/feed', $scope.item)
+      .success(function () {
+          $scope.status = "This item has been shared on OpenFB";
+      })
+      .error(function(data) {
+          alert(data.error.message);
+      });
+  };
+
+})
+
+.controller('ProfileCtrl', function ($scope, OpenFB) {
+  OpenFB.get('/me').success(function (user) {
+    $scope.user = user;
   });
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('PersonCtrl', function ($scope, $stateParams, OpenFB) {
+  OpenFB.get('/' + $stateParams.personId).success(function (user) {
+    $scope.user = user;
+  });
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('FriendsCtrl', function ($scope, $stateParams, OpenFB) {
+  OpenFB.get('/' + $stateParams.personId + '/friends', {limit: 50})
+    .success(function (result) {
+      $scope.friends = result.data;
+    })
+    .error(function(data) {
+      alert(data.error.message);
+    });
+})
+
+.controller('MutualFriendsCtrl', function ($scope, $stateParams, OpenFB) {
+  OpenFB.get('/' + $stateParams.personId + '/mutualfriends', {limit: 50})
+    .success(function (result) {
+      $scope.friends = result.data;
+    })
+    .error(function(data) {
+      alert(data.error.message);
+    });
+})
+
+.controller('FeedCtrl', function ($scope, $stateParams, OpenFB, $ionicLoading) {
+
+  $scope.show = function() {
+    $scope.loading = $ionicLoading.show({
+      content: 'Loading feed...'
+    });
+  };
+  $scope.hide = function(){
+    $scope.loading.hide();
+  };
+
+  function loadFeed() {
+    $scope.show();
+    OpenFB.get('/' + $stateParams.personId + '/home', {limit: 30})
+      .success(function (result) {
+        $scope.hide();
+        $scope.items = result.data;
+        // Used with pull-to-refresh
+        $scope.$broadcast('scroll.refreshComplete');
+      })
+      .error(function(data) {
+        $scope.hide();
+        alert(data.error.message);
+      });
+  }
+
+  $scope.doRefresh = loadFeed;
+
+  loadFeed();
+
 });
