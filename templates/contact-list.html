@@ -1,8 +1,13 @@
-<ion-view title="Search">
+<ion-view title="Contacts">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
-    <h1>Search</h1>
+
+    <ion-list>
+      <ion-item ng-repeat="contact in contacts" href="#/app/contacts/{{contact.Id}}">
+        {{contact.Name}}
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
