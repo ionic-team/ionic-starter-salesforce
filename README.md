@@ -18,6 +18,12 @@ Then, all you need to do is run:
 $ ionic start myApp salesforce
 ```
 
+After that, we will add the Salesforce OAuth plugin:
+
+```bash
+$ cordova plugin add https://github.com/forcedotcom/SalesforceMobileSDK-CordovaPlugin
+```
+
 Then, to run it, cd into `myApp` and run:
 
 ```bash
