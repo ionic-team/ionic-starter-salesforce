@@ -1,0 +1,22 @@
+<ion-view title="Contact">
+    <ion-content class="has-header">
+        <div class="list card">
+            <div class="item">
+                <h2>{{contact.Name}}</h2>
+                <p>{{contact.Title}}</p>
+            </div>
+            <a class="item item-icon-left" href="tel:{{contact.Phone}}">
+                <i class="icon ion-ios7-telephone"></i>Call Office<p>{{contact.Phone}}</p>
+            </a>
+            <a class="item item-icon-left" href="tel:{{contact.MobilePhone}}">
+                <i class="icon ion-ios7-telephone"></i>Call Mobile<p>{{contact.MobilePhone}}</p>
+            </a>
+            <a class="item item-icon-left" href="sms:{{contact.MobilePhone}}">
+                <i class="icon ion-chatbox-working"></i>SMS<p>{{contact.MobilePhone}}</p>
+            </a>
+            <a class="item item-icon-left" href="mailto:{{contact.Email}}">
+                <i class="icon ion-ios7-email"></i>Email<p>{{contact.Email}}</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
