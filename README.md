@@ -1,7 +1,7 @@
 This is a starter pack for building Ionic apps that use the full power of the Salesforce platform.
 
 Created as a partnership between Salesforce and Ionic, this starter project
-is a perfect fit for developers building Salesforce apps at the [Dreamforce](http://www.salesforce.com/dreamforce/DF14/) [$1M hackathon](https://developer.salesforce.com/million-dollar-hackathon), or building on the Salesforce platofmr.
+is a perfect fit for developers building Salesforce apps at the [Dreamforce](http://www.salesforce.com/dreamforce/DF14/) [$1M hackathon](https://developer.salesforce.com/million-dollar-hackathon), or building on the Salesforce platform.
 
 This is an addon starter template for the [Ionic Framework](http://ionicframework.com/).
 
