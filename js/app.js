@@ -22,17 +22,9 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers'])
             var oauthPlugin = cordova.require("com.salesforce.plugin.oauth");
 
             // Authenticate
-            oauthPlugin.getAuthCredentials(
-                function (creds) {
-                    console.log(JSON.stringify(creds));
-                    // Initialize ForceJS
-                    force.init({accessToken: creds.accessToken, instanceURL: creds.instanceUrl, refreshToken: creds.refreshToken});
-                    $state.go('app.contactlist');
-                },
-                function (error) {
-                    console.log(error);
-                }
-            );
+            force.login().then(function() {
+                $state.go('app.contactlist');
+            });
 
         });
     })
@@ -43,7 +35,8 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers'])
             .state('app', {
                 url: "/app",
                 abstract: true,
-                templateUrl: "templates/menu.html"
+                templateUrl: "templates/menu.html",
+                controller: 'AppCtrl'
             })
 
             .state('app.contactlist', {
@@ -62,6 +55,26 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers'])
                     'menuContent': {
                         templateUrl: "templates/contact.html",
                         controller: 'ContactCtrl'
+                    }
+                }
+            })
+
+            .state('app.edit-contact', {
+                url: "/edit-contact/:contactId",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/edit-contact.html",
+                        controller: 'EditContactCtrl'
+                    }
+                }
+            })
+
+            .state('app.add-contact', {
+                url: "/create-contact",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/edit-contact.html",
+                        controller: 'CreateContactCtrl'
                     }
                 }
             })
@@ -85,6 +98,7 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers'])
                     }
                 }
             });
+
 
         // if none of the above states are matched, use this as the fallback
 //        $urlRouterProvider.otherwise('/app/playlists');

@@ -1,13 +1,20 @@
 <ion-view title="Contacts">
-  <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
-  <ion-content class="has-header">
 
-    <ion-list>
-      <ion-item ng-repeat="contact in contacts" href="#/app/contacts/{{contact.Id}}">
-        {{contact.Name}}
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <a class="button button-clear ion-ios7-plus" href="#/app/create-contact"></a>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header">
+        <ion-list>
+            <ion-item ng-repeat="contact in contacts" href="#/app/contacts/{{contact.Id}}">
+                {{contact.Name}}
+                <p>{{contact.Title}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
 </ion-view>
