@@ -4,7 +4,7 @@ This is an addon starter template for the [Ionic Framework](http://ionicframewor
 
 ## How to use this template
 
-To use this, you'll need to have [installed Ionic](http://ionicframework.com/getting-started) and Cordova:
+To use this starter pack, you'll need to have [installed Ionic](http://ionicframework.com/getting-started) and Cordova:
 
 ```bash
 $ sudo npm install -g ionic cordova
@@ -24,14 +24,14 @@ $ ionic platform add ios
 $ ionic build ios
 ```
 
-Substitute ios for android if not on a Mac, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
+Substitute ios for android, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
 
 ## Running in the browser
 
 Because of the browser's cross-origin restrictions, your Ionic application hosted on your own server (or localhost) will not be able to make API calls directly to the *.salesforce.com domain. The solution is to proxy your API calls through your own server. You can use your own proxy server or use [ForceServer](https://github.com/ccoenraets/force-server), a simple development server for Force.com. It provides two main features:
 
-    - A **Proxy Server** to avoid cross-domain policy issues when invoking Salesforce REST services. (The Chatter API supports CORS, but other APIs don’t yet)
-    - A **Local Web Server** to (1) serve the OAuth callback URL defined in your Connected App, and (2) serve the whole app during development and avoid cross-domain policy issues when loading files (for example, templates) from the local file system.
+- A **Proxy Server** to avoid cross-domain policy issues when invoking Salesforce REST services. (The Chatter API supports CORS, but other APIs don’t yet)
+- A **Local Web Server** to (1) serve the OAuth callback URL defined in your Connected App, and (2) serve the whole app during development and avoid cross-domain policy issues when loading files (for example, templates) from the local file system.
 
 1. Install ForceServer
 
