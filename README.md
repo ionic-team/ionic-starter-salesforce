@@ -33,6 +33,8 @@ Because of the browser's cross-origin restrictions, your Ionic application hoste
 - A **Proxy Server** to avoid cross-domain policy issues when invoking Salesforce REST services. (The Chatter API supports CORS, but other APIs don’t yet)
 - A **Local Web Server** to (1) serve the OAuth callback URL defined in your Connected App, and (2) serve the whole app during development and avoid cross-domain policy issues when loading files (for example, templates) from the local file system.
 
+To run the application in the browser using ForceServer:
+
 1. Install ForceServer
 
     ```bash
@@ -46,17 +48,15 @@ Because of the browser's cross-origin restrictions, your Ionic application hoste
     ```
     force-server
     ```
-    
+
     This command will start the server on port 8200, and automatically load your app (http://localhost:8200) in a browser window. You'll see the Salesforce login window (make sure you enable the popup), and the list of contacts will appear after you log in. If you don’t have a free Salesforce Developer Edition to log in to, you can create one [here](http://developer.salesforce.com/signup).
-    
+
     You can change the port number and the web root. Type the following command for more info:
 
     ```
     force-server --help
     ```
-    
+
 ## ForceNG
 
 This template uses [ForceNG](https://github.com/ccoenraets/forceng), a micro-library that makes it easy to use the Salesforce REST APIs in AngularJS applications. ForceNG allows you to easily login into Salesforce using OAuth, and to access your Salesforce data using a simple API.
-
-    
