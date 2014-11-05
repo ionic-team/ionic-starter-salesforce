@@ -18,10 +18,7 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers'])
                 StatusBar.styleDefault();
             }
 
-            // Get reference to Salesforce OAuth plugin
-            var oauthPlugin = cordova.require("com.salesforce.plugin.oauth");
-
-            // Authenticate
+            // Authenticate using Salesforce OAuth
             force.login().then(function() {
                 $state.go('app.contactlist');
             });
@@ -99,8 +96,4 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers'])
                 }
             });
 
-
-        // if none of the above states are matched, use this as the fallback
-//        $urlRouterProvider.otherwise('/app/playlists');
     });
-
