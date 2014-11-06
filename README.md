@@ -60,4 +60,4 @@ To run the application in the browser using ForceServer:
 
 ## OAuth and REST
 
-This template uses [ForceNG](https://github.com/ccoenraets/forceng), a micro-library that makes it easy to use the Salesforce REST APIs in AngularJS applications. ForceNG allows you to easily login into Salesforce using OAuth, and to access your Salesforce data using a simple API.
+This template uses [forceng](https://github.com/ccoenraets/forceng), a micro-library that makes it easy to use the Salesforce REST APIs in AngularJS applications. forceng allows you to easily login into Salesforce using OAuth, and to access your Salesforce data using a simple API.
