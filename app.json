@@ -5,5 +5,5 @@
     "com.ionic.keyboard",
     "https://github.com/forcedotcom/SalesforceMobileSDK-CordovaPlugin"
   ],
-  "sass": true
+  "sass": false
 }
