@@ -1,4 +1,4 @@
-This is a starter pack for building Ionic apps on top of the Salesforce platform created as a partnership between Ionic and Salesforce.
+Starter pack for building Ionic apps on top of the Salesforce platform created as a partnership between Ionic and Salesforce.
 
 This is an addon starter template for the [Ionic Framework](http://ionicframework.com/). The template installs a starter application that uses Salesforce OAuth to authenticate, and the Salesforce REST APIs to access and manipulate Salesforce data.
 
@@ -22,6 +22,7 @@ Navigate (cd) to `myApp` and run:
 ```bash
 $ ionic platform add ios
 $ ionic build ios
+$ ionic emulate ios
 ```
 
 Substitute ios for android, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
@@ -57,6 +58,6 @@ To run the application in the browser using ForceServer:
     force-server --help
     ```
 
-## ForceNG
+## OAuth and REST
 
-This template uses [ForceNG](https://github.com/ccoenraets/forceng), a micro-library that makes it easy to use the Salesforce REST APIs in AngularJS applications. ForceNG allows you to easily login into Salesforce using OAuth, and to access your Salesforce data using a simple API.
+This template uses [forceng](https://github.com/ccoenraets/forceng), a micro-library that makes it easy to use the Salesforce REST APIs in AngularJS applications. forceng allows you to easily login into Salesforce using OAuth, and to access your Salesforce data using a simple API.
