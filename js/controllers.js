@@ -3,9 +3,7 @@ angular.module('starter.controllers', ['forceng'])
     .controller('AppCtrl', function ($scope, force) {
 
         $scope.logout = function() {
-            alert('logout');
             force.logout();
-            alert('logout done');
         };
 
     })
