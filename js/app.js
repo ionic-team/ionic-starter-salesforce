@@ -20,6 +20,7 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers'])
 
             // Authenticate using Salesforce OAuth
             force.login().then(function() {
+                console.log('login success');
                 $state.go('app.contactlist');
             });
 
