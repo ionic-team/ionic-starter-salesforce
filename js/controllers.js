@@ -37,7 +37,6 @@ angular.module('starter.controllers', ['forceng'])
         $scope.save = function () {
             force.update('contact', $scope.contact).then(
                 function (response) {
-                    console.log(response);
                     $ionicNavBarDelegate.back();
                 },
                 function() {
@@ -54,7 +53,6 @@ angular.module('starter.controllers', ['forceng'])
         $scope.save = function () {
             force.create('contact', $scope.contact).then(
                 function (response) {
-                    console.log(response);
                     $ionicNavBarDelegate.back();
                 },
                 function() {
@@ -77,7 +75,6 @@ angular.module('starter.controllers', ['forceng'])
 
         force.retrieve('account', $stateParams.accountId, 'id,name,phone,billingaddress').then(
             function (account) {
-                console.log(account);
                 $scope.account = account;
             });
 
