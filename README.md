@@ -17,14 +17,22 @@ $ ionic start myApp salesforce
 
 ## Running on device
 
-Navigate (cd) to `myApp` and run:
+Substitute ios for android in the instructioons below, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
 
-```bash
-$ ionic build ios
-$ ionic emulate ios
-```
+1. Navigate (cd) to `myApp` and run:
 
-Substitute ios for android, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
+    ```bash
+    $ ionic build ios
+    ```
+
+1. Run the app in the emulator
+
+    ```bash
+    $ ionic emulate ios
+    ```
+
+1. ... or (for iOS) open **platforms/ios/myApp.xcodeproj** in Xcode and run the app on your device. If the build fails in Xcode, select the myApp target, click the **Build Settings** tab, search for **bitcode**, select **No** for **Enable Bitcode**, and try again.
+
 
 ## Running in the browser
 
