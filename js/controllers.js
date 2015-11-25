@@ -12,7 +12,6 @@ angular.module('starter.controllers', ['forceng'])
 
         force.query('select id, name, title from contact limit 50').then(
             function (data) {
-                console.log('query ok');
                 $scope.contacts = data.records;
             },
             function (error) {
