@@ -1,12 +1,5 @@
 {
   "plugins": [
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-whitelist",
-    "ionic-plugin-keyboard",
-    "cordova-plugin-statusbar"
-    "cordova-plugin-device",
-    "cordova-plugin-console",
-    "ionic-plugin-keyboard",
     "https://github.com/forcedotcom/SalesforceMobileSDK-CordovaPlugin"
   ],
   "sass": false
