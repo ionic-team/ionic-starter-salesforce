@@ -20,7 +20,6 @@ $ ionic start myApp salesforce
 Navigate (cd) to `myApp` and run:
 
 ```bash
-$ ionic platform add ios
 $ ionic build ios
 $ ionic emulate ios
 ```

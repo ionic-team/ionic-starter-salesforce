@@ -1,7 +1,7 @@
 {
   "plugins": [
-    "org.apache.cordova.device",
-    "org.apache.cordova.console",
+    "cordova-plugin-device",
+    "cordova-plugin-console",
     "com.ionic.keyboard",
     "https://github.com/forcedotcom/SalesforceMobileSDK-CordovaPlugin"
   ],
