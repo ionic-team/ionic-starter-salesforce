@@ -13,6 +13,7 @@ $ sudo npm install -g ionic cordova
 Then, all you need to do is run:
 ```
 $ ionic start myApp salesforce
+$ ionic plugin add https://github.com/forcedotcom/SalesforceMobileSDK-CordovaPlugin
 ```
 
 ## Running on device
