@@ -24,7 +24,6 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers', 'config'])
       // Initialize forceng
       force.init(forcengOptions);
 
-
       if (forcengOptions.accessToken) {
         // If the accessToken was provided (typically when running the app from within a Visualforce page,
         // go straight to the contact list
@@ -32,11 +31,14 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers', 'config'])
       } else {
         // Otherwise (the app is probably running as a standalone web app or as a hybrid local app with the
         // Mobile SDK, login first.)
-        force.login().then(function () {
-          $state.go('app.contactlist');
-        });
+        force.login().then(
+          function () {
+            $state.go('app.contactlist');
+          },
+          function(error) {
+            alert("Login was not successful");
+          });
       }
-      $state.go('app.contactlist');
 
     });
   })
