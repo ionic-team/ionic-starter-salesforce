@@ -13,6 +13,8 @@ $ sudo npm install -g ionic cordova
 Then, all you need to do is run:
 ```
 $ ionic start myApp salesforce
+$ cd myApp
+$ ionic platforms update ios
 $ ionic plugin add https://github.com/forcedotcom/SalesforceMobileSDK-CordovaPlugin
 ```
 
@@ -20,7 +22,7 @@ $ ionic plugin add https://github.com/forcedotcom/SalesforceMobileSDK-CordovaPlu
 
 Substitute ios for android in the instructioons below, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
 
-1. Navigate (cd) to `myApp` and run:
+1. Build the project:
 
     ```bash
     $ ionic build ios
